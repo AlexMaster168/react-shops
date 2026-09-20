@@ -57,16 +57,51 @@ public/
   covers/               обложки
 scripts/
   fetch-covers.mjs      разовая выгрузка обложек из Open Library
-  make_report.py        скриншоты + docs/report.docx
-docs/report.docx        отчёт со скриншотами
+  make_screens.py       скриншоты приложения → docs/screens
+docs/screens/           скриншоты для README
 ```
 
 Фильтрация/сортировка/пагинация вынесены в мемоизированные селекторы (`reselect`), компоненты только рисуют.
 
-## Отчёт со скриншотами
+## Скриншоты
 
-[docs/report.docx](docs/report.docx). Пересобрать: `pnpm build && pnpm preview`, затем
-`pip install python-docx playwright && python scripts/make_report.py`.
+**Каталог: первая страница, обложки загружаются локально**
+
+![Каталог: первая страница, обложки загружаются локально](docs/screens/01-catalog.png)
+
+**Карточка товара: «−» / «+» и счётчик штук**
+
+![Карточка товара: «−» / «+» и счётчик штук](docs/screens/02-card-qty.png)
+
+**Корзина: количество по позициям, +/−, удаление, итог**
+
+![Корзина: количество по позициям, +/−, удаление, итог](docs/screens/03-cart.png)
+
+**Корзина после «−»: позиция с 1 шт. удалена**
+
+![Корзина после «−»: позиция с 1 шт. удалена](docs/screens/04-cart-minus.png)
+
+**Сортировка: цена по убыванию**
+
+![Сортировка: цена по убыванию](docs/screens/05-sort.png)
+
+**Пагинация: вторая страница**
+
+![Пагинация: вторая страница](docs/screens/06-page2.png)
+
+**Поиск по названию/автору: «роберт»**
+
+![Поиск по названию/автору: «роберт»](docs/screens/07-search.png)
+
+**Фильтры: цена до 150 грн и рейтинг от 4**
+
+![Фильтры: цена до 150 грн и рейтинг от 4](docs/screens/08-filters.png)
+
+**Пустая выдача**
+
+![Пустая выдача](docs/screens/09-empty.png)
+
+Пересобрать: `pnpm build && pnpm preview`, затем `pip install playwright && python scripts/make_screens.py`.
 
 ## Деплой
 

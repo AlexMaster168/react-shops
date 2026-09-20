@@ -1,11 +1,9 @@
-"""Снимает скриншоты запущенного приложения (vite preview) и собирает docs/report.docx.
+"""Снимает скриншоты запущенного приложения (vite preview) в docs/screens.
 
-Запуск: pnpm build && pnpm preview (в другом терминале), затем python scripts/make_report.py
+Запуск: pnpm build && pnpm preview (в другом терминале), затем python scripts/make_screens.py
 """
 from pathlib import Path
 
-from docx import Document
-from docx.shared import Cm
 from playwright.sync_api import sync_playwright
 
 URL = "http://localhost:4173/"
@@ -67,11 +65,4 @@ with sync_playwright() as p:
     snap(page, "09-empty", "Пустая выдача: сообщение «Ничего не найдено»")
     browser.close()
 
-doc = Document()
-doc.add_heading("Магазин книг — отчёт со скриншотами", 0)
-doc.add_paragraph("React 18 + TypeScript + Redux Toolkit + Vite, пакетный менеджер pnpm.")
-for path, caption in shots:
-    doc.add_heading(caption, level=2)
-    doc.add_picture(path, width=Cm(16))
-doc.save(OUT / "report.docx")
-print("saved", OUT / "report.docx", len(shots), "screens")
+print("saved", len(shots), "screens to", SHOTS)
