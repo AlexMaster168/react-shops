@@ -1,5 +1,5 @@
-.idea
 node_modules
-yarn.lock/
 build
-package-lock.json/
+.idea
+screens
+*.tsbuildinfo

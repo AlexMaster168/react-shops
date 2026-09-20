@@ -2,24 +2,22 @@ body {
   margin-top: 20px;
 }
 
-.menu {
-  margin-bottom: 20px;
-}
-
-.popup {
-  max-width: 400px !important;
-}
-
 .card-image {
   height: 350px;
   overflow: hidden;
+  background: #f3f4f5;
 }
 
 .card-image img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-#demo-simple-select-label {
-  position: relative;
-  bottom: -15px;
+.pager {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin: 24px 0;
 }
